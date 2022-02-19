@@ -54,4 +54,4 @@ BOOL APIENTRY DllMain(HMODULE a1, DWORD  a2, LPVOID a3) {
         CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Init, 0, 0, 0);
     }
     return TRUE;
-} // test comment
+}
