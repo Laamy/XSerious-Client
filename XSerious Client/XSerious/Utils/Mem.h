@@ -43,7 +43,7 @@ public:
             byteData = 0xC3;
         }
     };
-    static uintptr_t findSig(const char* sig) {
+    static uintptr_t findSig(const char* sig) { // useless due to roblox crashes when its memory is being scanned
         const char* pattern = sig;
         uintptr_t firstMatch = 0;
         static const uintptr_t rangeStart = (uintptr_t)GetModuleHandleA("RobloxPlayerBeta.exe");

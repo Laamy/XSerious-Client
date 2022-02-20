@@ -11,4 +11,17 @@ public:
 		snprintf(hwid, 65, "%lu", HW_ID);
 		return hwid;
 	}
+
+	const static bool isWhitelisted(const char* HWID) {
+		bool output = false;
+
+		if (atoi(HWID) == 65599)
+			return true;
+
+		return output;
+	}
+
+	const static bool isWhitelisted() {
+		return isWhitelisted(getHWID());
+	}
 };

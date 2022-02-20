@@ -1,5 +1,8 @@
 #pragma region Imports
 
+#define _CRT_SECURE_NO_DEPRICATE
+#define _CRT_SECURE_NO_WARNINGS
+
 // Include system imports
 #include <WinSock2.h>
 #include <vector>
@@ -15,6 +18,7 @@
 #include "XSerious/HWIDManager.h"
 
 // Include game class
+#include "Memory/MainHooks.h"
 #include "Memory/Game.h"
 
 #pragma endregion
@@ -27,22 +31,23 @@ DWORD __stdcall Eject(LPVOID a1) {
 }
 
 DWORD WINAPI Init() {
-    AllocConsole();
+    const char* name = "XSerious";
+    Game::OpenConsole(name);
+    //Game::hooks.rPrint(0, "Hello, World!");
 
-    FILE* fp;
-    freopen_s(&fp, "CONOUT$", "w", stdout);
-    
-    Utils::Log("Getting HWID...");
-    Utils::Log(HWIDManager::getHWID());
+    Utils::Log(name, "Test console");
 
     while (true) {
-        Sleep(50);
-        if (GetAsyncKeyState(VK_ESCAPE))
-            break;
-    }
+        std::string command;
+        std::cin >> command;
 
-    fclose(fp);
-    FreeConsole();
+        if (command == "eject") {
+            break;
+        }
+    }
+    Utils::Log(name, "Attempting to eject...");
+
+    Game::CloseConsole();
     CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Eject, 0, 0, 0);
     return 0;
 }

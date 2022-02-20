@@ -32,5 +32,8 @@
     <ClInclude Include="XSerious\HWIDManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Memory\MainHooks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
