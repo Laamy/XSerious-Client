@@ -4,7 +4,7 @@ class Utils {
 public:
 	const static void Log(const char* str) {
 		std::cout << str << std::endl;
-		Game::hooks.Print(0, str);
+		Game::hooks.Print(str);
 	}
 
 	const static void Log(const char* title, const char* str) {

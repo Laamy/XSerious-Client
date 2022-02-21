@@ -7,7 +7,7 @@ class Game {
 private:
 
 public:
-	const static MainHooks hooks;
+	static MainHooks hooks;
 
     const static void OpenConsole(const char* title) {
         VirtualProtect((PVOID)&FreeConsole, 1, PAGE_EXECUTE_READWRITE, &asdmemes);
@@ -29,4 +29,4 @@ public:
     }
 };
 
-const MainHooks Game::hooks = MainHooks();
+MainHooks Game::hooks = MainHooks();

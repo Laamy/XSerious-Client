@@ -6,6 +6,9 @@ public:
 
 	void Execute(std::string cmd) {
 		//Utils::Log("Hello world!");
-		//Game::hooks.Imgui(20, 20);
+		Game::hooks.Print("This is a print");
+		Game::hooks.Alert("This is an alert");
+		Game::hooks.Warn("This is a warning");
+		Game::hooks.Error("This is an error");
 	};
 };
