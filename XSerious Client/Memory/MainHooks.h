@@ -4,9 +4,6 @@
 
 class MainHooks {
 public:
-	typedef int(__cdecl *RPrint)(int, const char*, ...);
-	RPrint Print = (RPrint)x(0x752820);
-
-	typedef unsigned int(__stdcall *RImGui)(int a1, int a2, ...);
-	RImGui Imgui = (RImGui)x(0x13DC240);
+	typedef int(__cdecl *PrintHook)(int, const char*);
+	PrintHook Print = (PrintHook)x(0x752820);
 };
