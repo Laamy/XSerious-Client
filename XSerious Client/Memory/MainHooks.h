@@ -4,6 +4,6 @@
 
 class MainHooks {
 public:
-	typedef int(__cdecl *PrintHook)(int, const char*);
-	PrintHook Print = (PrintHook)x(0x752820);
+	typedef int(__cdecl *Sub_Print)(int, const char*);
+	Sub_Print Print = (Sub_Print)x(0x752820);
 };
