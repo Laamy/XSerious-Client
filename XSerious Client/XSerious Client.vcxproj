@@ -156,6 +156,12 @@
   <ItemGroup>
     <ClInclude Include="Memory\Game.h" />
     <ClInclude Include="Memory\MainHooks.h" />
+    <ClInclude Include="XSerious\Command\Command.h" />
+    <ClInclude Include="XSerious\Command\CommandManager.h" />
+    <ClInclude Include="XSerious\Command\Commands\ClearCommand.h" />
+    <ClInclude Include="XSerious\Command\Commands\EjectCommand.h" />
+    <ClInclude Include="XSerious\Command\Commands\PrintCommand.h" />
+    <ClInclude Include="XSerious\Command\Commands\TestCommand.h" />
     <ClInclude Include="XSerious\HWIDManager.h" />
     <ClInclude Include="XSerious\Utils\Mem.h" />
     <ClInclude Include="XSerious\Utils\Utils.h" />

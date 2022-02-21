@@ -4,6 +4,9 @@
 
 class MainHooks {
 public:
-	typedef void(__thiscall* TestHook)();
-	TestHook _Test;
+	typedef int(__cdecl *RPrint)(int, const char*, ...);
+	RPrint Print = (RPrint)x(0x752820);
+
+	typedef unsigned int(__stdcall *RImGui)(int a1, int a2, ...);
+	RImGui Imgui = (RImGui)x(0x13DC240);
 };

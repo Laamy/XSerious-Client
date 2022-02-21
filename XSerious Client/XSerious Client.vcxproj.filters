@@ -35,5 +35,23 @@
     <ClInclude Include="Memory\MainHooks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="XSerious\Command\Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XSerious\Command\CommandManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XSerious\Command\Commands\TestCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XSerious\Command\Commands\ClearCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XSerious\Command\Commands\PrintCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XSerious\Command\Commands\EjectCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

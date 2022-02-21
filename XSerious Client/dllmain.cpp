@@ -10,16 +10,21 @@
 #include <iostream>
 #include <Windows.h>
 
-// Include utils
-#include "XSerious/Utils/Mem.h"
-#include "XSerious/Utils/Utils.h"
-
 // Include XSerious vUtils
 #include "XSerious/HWIDManager.h"
 
 // Include game class
 #include "Memory/MainHooks.h"
 #include "Memory/Game.h"
+
+// Include utils
+#include "XSerious/Utils/Mem.h"
+#include "XSerious/Utils/Utils.h"
+
+bool active = true;
+
+// Include command manager
+#include "XSerious/Command/CommandManager.h"
 
 #pragma endregion
 
@@ -33,21 +38,22 @@ DWORD __stdcall Eject(LPVOID a1) {
 DWORD WINAPI Init() {
     const char* name = "XSerious";
     Game::OpenConsole(name);
-    //Game::hooks.rPrint(0, "Hello, World!");
 
-    Utils::Log(name, "Test console");
+    Utils::Log(name, "Attempting to inject...");
+    g_Cmds.Init();
 
-    while (true) {
+    while (active) {
         std::string command;
         std::cin >> command;
 
-        if (command == "eject") {
-            break;
+        for (Command* cmd : g_Cmds.commands) { // console commands
+            if (cmd->command == command)
+                cmd->Execute(command);
         }
     }
-    Utils::Log(name, "Attempting to eject...");
 
     Game::CloseConsole();
+
     CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Eject, 0, 0, 0);
     return 0;
 }

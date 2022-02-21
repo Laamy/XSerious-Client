@@ -4,9 +4,15 @@ class Utils {
 public:
 	const static void Log(const char* str) {
 		std::cout << str << std::endl;
+		Game::hooks.Print(0, str);
 	}
 
 	const static void Log(const char* title, const char* str) {
-		std::cout << "[" << title << "] " << str << std::endl;
+		std::string s1("[");
+		std::string s2("] ");
+
+		std::string Output(s1 + title + s2 + str); // there has to be a better way to do this ;-;
+
+		Utils::Log(Output.c_str());
 	}
 };

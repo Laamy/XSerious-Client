@@ -21,10 +21,11 @@ public:
         SetWindowPos(ConsoleHandle, HWND_TOP, 0, 0, 0, 0, SWP_DRAWFRAME | SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
         ShowWindow(ConsoleHandle, SW_NORMAL);
     }
-
     const static void CloseConsole() {
-        //FreeLibraryAndExitThread(console, 0);
         FreeConsole();
+    }
+    const static void ClearConsole() {
+        system("cls"); // unsafe
     }
 };
 
