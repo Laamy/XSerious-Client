@@ -46,9 +46,10 @@ DWORD WINAPI Init() {
         std::string command;
         std::cin >> command;
 
-        for (Command* cmd : g_Cmds.commands) { // console commands
-            if (cmd->command == command)
+        for (Command* cmd : g_Cmds.commands) {
+            if (cmd->command == command) {
                 cmd->Execute(command);
+            }
         }
     }
 

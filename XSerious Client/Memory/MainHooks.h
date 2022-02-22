@@ -4,12 +4,12 @@
 
 class MainHooks {
 private:
-	typedef int(__cdecl* Sub_Print)(int, const char*);
+	typedef void(__cdecl* Sub_Print)(int, const char*);
 	Sub_Print RPrint = (Sub_Print)x(0x752820);
 
 public:
-	const void Print(const char* str) { RPrint(0, str); }
-	const void Alert(const char* str) { RPrint(1, str); }
-	const void Warn(const char* str) { RPrint(2, str); }
-	const void Error(const char* str) { RPrint(3, str); }
+	void Output(const char* str) { RPrint(0, str); }
+	void Info(const char* str) { RPrint(1, str); }
+	void Warning(const char* str) { RPrint(2, str); }
+	void Error(const char* str) { RPrint(3, str); }
 };

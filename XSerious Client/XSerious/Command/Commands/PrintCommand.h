@@ -8,6 +8,6 @@ public:
 		std::string toPrint;
 		std::cin >> toPrint;
 
-		Game::hooks.Print(toPrint.c_str());
+		Utils::Log(toPrint.c_str());
 	};
 };
