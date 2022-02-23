@@ -40,7 +40,11 @@ DWORD WINAPI Init() {
     Game::OpenConsole(name);
 
     Utils::Log(name, "Attempting to inject...");
+
+    Game::hooks.SetCrashMsg("XSerious Crash", "Test crash msg"); // customize crash message
     g_Cmds.Init();
+
+    Utils::Log(name, "Injected!");
 
     while (active) {
         std::string command;

@@ -23,7 +23,6 @@ public:
 		std::vector<const char*> output;
 		std::string subT;
 
-
 		while ((end = myStr.find(tso, start)) != std::string::npos) {
 			subT = myStr.substr(start, end - start);
 			start = end + tso_len;

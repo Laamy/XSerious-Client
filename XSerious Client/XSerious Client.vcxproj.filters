@@ -53,5 +53,8 @@
     <ClInclude Include="XSerious\Command\Commands\EjectCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Memory\SDK\SubSDK\TextHolder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
