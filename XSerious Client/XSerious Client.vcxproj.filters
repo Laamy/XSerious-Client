@@ -56,5 +56,8 @@
     <ClInclude Include="Memory\SDK\SubSDK\TextHolder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="XSerious\NamedPipe\NamedPipe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

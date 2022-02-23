@@ -164,6 +164,7 @@
     <ClInclude Include="XSerious\Command\Commands\PrintCommand.h" />
     <ClInclude Include="XSerious\Command\Commands\TestCommand.h" />
     <ClInclude Include="XSerious\HWIDManager.h" />
+    <ClInclude Include="XSerious\NamedPipe\NamedPipe.h" />
     <ClInclude Include="XSerious\Utils\Mem.h" />
     <ClInclude Include="XSerious\Utils\Utils.h" />
   </ItemGroup>

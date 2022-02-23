@@ -8,11 +8,12 @@ DWORD ansnenen;
 class MainHooks {
 private:
 	typedef void(__cdecl* Sub_Crash)(int);
-	typedef void(__cdecl* Sub_Print)(int, const char*);
-	typedef void(__cdecl* Sub_FCrash)(int, const char*);
-
 	Sub_Crash RCrash = (Sub_Crash)x(0x700000); // used to force a crash
+
+	typedef void(__cdecl* Sub_Print)(int, const char*);
 	Sub_Print RPrint = (Sub_Print)x(0x752820);
+
+	typedef void(__cdecl* Sub_FCrash)(int, const char*);
 	Sub_FCrash FCrash = (Sub_FCrash)x(0x1CAF720);
 
 	uintptr_t Base = (uintptr_t)GetModuleHandleA("RobloxPlayerBeta.exe");
