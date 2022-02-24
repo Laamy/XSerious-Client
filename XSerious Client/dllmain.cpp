@@ -29,6 +29,9 @@ bool active = true;
 // Include pipe header
 #include "XSerious/NamedPipe/NamedPipe.h"
 
+// what else do u think tjhis is for u sutpid fuck
+#include "XSerious/LuaEnvironment/lua_x.h"
+
 #pragma endregion
 
 HMODULE Dll_hModule;
@@ -46,8 +49,14 @@ DWORD WINAPI Init() {
 
     Game::hooks.SetCrashMsg("XSerious Crash", "Test crash msg"); // customize crash message
     g_Cmds.Init();
+    LuaManager::InitalizeLua(); // lua execution (DUH !)
 
     Utils::Log(name, "Injected!");
+
+    Utils::Log(name, "Executing preplanned script :)");
+
+    LuaManager::Execute("Print('Hello, world!')"); // execute some basic ass lua
+    LuaManager::Execute("Print('Hello, world!'"); // execute some basic ass lua with an error
 
     while (active) {
         std::string command;

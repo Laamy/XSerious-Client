@@ -6,6 +6,11 @@ public:
 		std::cout << str << std::endl;
 		Game::hooks.Output(str);
 	}
+
+	const static void LogF(const char* str) {
+		std::cout << str << std::endl;
+	}
+
 	const static void Log(const char* title, const char* str) {
 		std::string s1("[");
 		std::string s2("] ");

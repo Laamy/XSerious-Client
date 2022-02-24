@@ -21,15 +21,15 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{53e7d43d-6517-4a92-bee4-c98504b83e44}</ProjectGuid>
-    <RootNamespace>XSeriousClient</RootNamespace>
+    <ProjectGuid>{4f25f875-0ce2-4713-a96e-dc1064f197a4}</ProjectGuid>
+    <RootNamespace>BasicDxHook</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -86,9 +86,9 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;XSERIOUSCLIENT_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;BASICDXHOOK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -103,7 +103,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;XSERIOUSCLIENT_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;BASICDXHOOK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -120,7 +120,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;XSERIOUSCLIENT_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;BASICDXHOOK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -137,7 +137,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;XSERIOUSCLIENT_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;BASICDXHOOK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -152,76 +152,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lapi.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lauxlib.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lbaselib.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lcode.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\ldblib.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\ldebug.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\ldo.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\ldump.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lfunc.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lgc.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\linit.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\liolib.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\llex.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lmathlib.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lmem.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\loadlib.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lobject.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lopcodes.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\loslib.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lparser.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lstate.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lstring.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lstrlib.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\ltable.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\ltablib.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\ltm.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lundump.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lvm.c" />
-    <ClCompile Include="XSerious\LuaEnvironment\Lua\lzio.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Memory\Game.h" />
-    <ClInclude Include="Memory\MainHooks.h" />
-    <ClInclude Include="Memory\SDK\SubSDK\TextHolder.h" />
-    <ClInclude Include="XSerious\Command\Command.h" />
-    <ClInclude Include="XSerious\Command\CommandManager.h" />
-    <ClInclude Include="XSerious\Command\Commands\ClearCommand.h" />
-    <ClInclude Include="XSerious\Command\Commands\EjectCommand.h" />
-    <ClInclude Include="XSerious\Command\Commands\PrintCommand.h" />
-    <ClInclude Include="XSerious\Command\Commands\TestCommand.h" />
-    <ClInclude Include="XSerious\HWIDManager.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\EnvironmentHelpers.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lapi.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lauxlib.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lcode.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\ldebug.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\ldo.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lfunc.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lgc.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\llex.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\llimits.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lmem.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lobject.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lopcodes.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lparser.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lstate.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lstring.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\ltable.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\ltm.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lua.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lua.hpp" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\luaconf.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lualib.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lundump.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lvm.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\Lua\lzio.h" />
-    <ClInclude Include="XSerious\LuaEnvironment\lua_x.h" />
-    <ClInclude Include="XSerious\NamedPipe\NamedPipe.h" />
-    <ClInclude Include="XSerious\Utils\Mem.h" />
-    <ClInclude Include="XSerious\Utils\Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
