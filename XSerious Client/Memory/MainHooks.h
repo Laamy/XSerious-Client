@@ -11,18 +11,15 @@ private:
 	Sub_Crash RCrash = (Sub_Crash)x(0x700000); // used to force a crash
 
 	typedef void(__cdecl* Sub_Print)(int, const char*);
-	Sub_Print RPrint = (Sub_Print)x(0x752820);
-
-	typedef void(__cdecl* Sub_FCrash)(int, const char*);
-	Sub_FCrash FCrash = (Sub_FCrash)x(0x1CAF720);
+	Sub_Print RPrint = (Sub_Print)x(0x7497D0);
 
 	uintptr_t Base = (uintptr_t)GetModuleHandleA("RobloxPlayerBeta.exe");
 
-	TextHolder* crashTitleAddr = reinterpret_cast<TextHolder*>(0x2A7CB68);
+	TextHolder* crashTitleAddr = reinterpret_cast<TextHolder*>(0x26C20C8);
 	TextHolder* crashMsgAddr = reinterpret_cast<TextHolder*>((uintptr_t)crashTitleAddr - 0x48);
 	TextHolder* crashMsgSubAddr = reinterpret_cast<TextHolder*>((uintptr_t)crashTitleAddr + 0x38);
 	
-	// 0x208D880 Pushboolean
+	// 0x1DD7AA0 Pushboolean
 public:
 	void Output(const char* str) { RPrint(0, str); }
 	void Info(const char* str) { RPrint(1, str); }

@@ -26,6 +26,9 @@ bool active = true;
 // Include command manager
 #include "XSerious/Command/CommandManager.h"
 
+// Include pipe header
+#include "XSerious/NamedPipe/NamedPipe.h"
+
 #pragma endregion
 
 HMODULE Dll_hModule;

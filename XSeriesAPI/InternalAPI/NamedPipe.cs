@@ -77,7 +77,7 @@ namespace XSeriesAPI.InternalAPI
                         }
                     }
                     catch { } //TODO: Send error to pipeserver
-                }).Start();
+                });
             }
 
             return output;
