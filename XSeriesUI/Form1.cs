@@ -13,10 +13,14 @@ namespace XSeriesUI
     public partial class Form1 : Form
     {
         ExploitAPI api = new ExploitAPI();
+        Point pos;
+
         public Form1()
         {
             InitializeComponent();
         }
+
+        #region ToolBar
 
         private void guna2Button2_Click_1(object sender, EventArgs e)
         {
@@ -49,7 +53,10 @@ namespace XSeriesUI
             else InfoBox.Text = "Fatal error";
         }
 
-        Point pos;
+        #endregion
+
+        #region MoveUI
+
         private void guna2Panel1_MouseDown(object sender, MouseEventArgs e)
         {
             switch (e.Button)
@@ -66,6 +73,10 @@ namespace XSeriesUI
             Left = e.X + Left - pos.X;
             Top = e.Y + Top - pos.Y;
         }
+
+        #endregion
+
+        #region Hide/Max/Min/Kill UI
 
         private void guna2Button6_Click(object sender, EventArgs e)
         {
@@ -91,5 +102,7 @@ namespace XSeriesUI
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        #endregion
     }
 }
