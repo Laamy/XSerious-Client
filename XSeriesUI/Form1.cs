@@ -17,7 +17,22 @@ namespace XSeriesUI
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e) //attach
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            api.ExecuteScript(guna2TextBox1.Text);
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            api.ExitRoblox();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            guna2TextBox1.Clear();
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
         {
             bool injected = api.Attach();
             if (injected)
@@ -25,24 +40,12 @@ namespace XSeriesUI
             else InfoBox.Text = "Fatal error";
         }
 
-        private void button5_Click(object sender, EventArgs e) //reattach
+        private void guna2Button4_Click(object sender, EventArgs e)
         {
-             // fuck this
-        }
-
-        private void button2_Click(object sender, EventArgs e) //clear
-        {
-            textBox1.Clear();
-        }
-
-        private void button3_Click(object sender, EventArgs e) // restart
-        {
-            api.ExitRoblox();
-        }
-
-        private void button1_Click(object sender, EventArgs e) // execute
-        {
-            api.ExecuteScript(textBox1.Text);
+            bool injected = api.Attach();
+            if (injected)
+                InfoBox.Text = "Injected into process!";
+            else InfoBox.Text = "Fatal error";
         }
     }
 }
