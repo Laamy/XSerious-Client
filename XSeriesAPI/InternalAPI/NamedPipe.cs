@@ -44,7 +44,7 @@ namespace XSeriesAPI.InternalAPI
         }
 
         private static List<String> pipeData = new List<String>(); // String looks better here ngl
-        public static bool SendPacket(string pipeName, string command, string data)
+        public static bool SendPacket(string pipeName, string data)
         {
             bool output = false;
 
@@ -60,17 +60,7 @@ namespace XSeriesAPI.InternalAPI
                             pipe.Connect();
                             using (StreamWriter sw = new StreamWriter(pipe, Encoding.Default, 0xF4240)) // 1 megabyte
                             {
-                                uint id = 0;
-                                switch (command)
-                                {
-                                    case "Script":
-                                        id = 1;
-                                        break;
-                                    default:
-                                        id = uint.MaxValue; // -1
-                                        break;
-                                }
-                                sw.Write(id + "█" + data);
+                                sw.Write(data);
 
                                 output = true;
                             }

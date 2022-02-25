@@ -26,11 +26,12 @@ bool active = true;
 // Include command manager
 #include "XSerious/Command/CommandManager.h"
 
+// what else do u think tjhis is for u sutpid fuck
+#include "XSerious/LuaEnvironment/lua_x.h"
+
 // Include pipe header
 #include "XSerious/NamedPipe/NamedPipe.h"
 
-// what else do u think tjhis is for u sutpid fuck
-#include "XSerious/LuaEnvironment/lua_x.h"
 
 #pragma endregion
 
@@ -48,15 +49,13 @@ DWORD WINAPI Init() {
     Utils::Log(name, "Attempting to inject...");
 
     Game::hooks.SetCrashMsg("XSerious Crash", "Test crash msg"); // customize crash message
-    g_Cmds.Init();
-    LuaManager::InitalizeLua(); // lua execution (DUH !)
+
+    NamedPipe::InitalizePipeServer(); // lua & pipe shit
+    LuaManager::InitalizeLua();
+    
+    g_Cmds.Init(); // initalize console commands
 
     Utils::Log(name, "Injected!");
-
-    Utils::Log(name, "Executing preplanned script :)");
-
-    LuaManager::Execute("Print('Hello, world!')"); // execute some basic ass lua
-    LuaManager::Execute("Print('Hello, world!'"); // execute some basic ass lua with an error
 
     while (active) {
         std::string command;
@@ -69,7 +68,7 @@ DWORD WINAPI Init() {
         }
     }
 
-    Game::CloseConsole();
+    Game::CloseConsole(); // close console
 
     CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Eject, 0, 0, 0);
     return 0;

@@ -22,35 +22,32 @@ namespace XSeriesUI
 
         #region ToolBar
 
-        private void guna2Button2_Click_1(object sender, EventArgs e)
+        private void guna2Button4_Click(object sender, EventArgs e)
         {
-            api.ExecuteScript(guna2TextBox1.Text);
+            bool injected = api.Attach();
+            if (injected)
+                InfoBox.Text = "Injected into process!";
+            else InfoBox.Text = "Fatal error";
         }
 
-        private void guna2Button1_Click_1(object sender, EventArgs e)
+        private void guna2Button5_Click(object sender, EventArgs e)
         {
-            api.ExitRoblox();
+            //api.EjectAPI();
         }
 
-        private void guna2Button3_Click_1(object sender, EventArgs e)
+        private void guna2Button3_Click(object sender, EventArgs e)
         {
             guna2TextBox1.Clear();
         }
 
-        private void guna2Button5_Click_1(object sender, EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
-            bool injected = api.Attach();
-            if (injected)
-                InfoBox.Text = "Injected into process!";
-            else InfoBox.Text = "Fatal error";
+            api.ExitRoblox();
         }
 
-        private void guna2Button4_Click_1(object sender, EventArgs e)
+        private void guna2Button2_Click(object sender, EventArgs e)
         {
-            bool injected = api.Attach();
-            if (injected)
-                InfoBox.Text = "Injected into process!";
-            else InfoBox.Text = "Fatal error";
+            api.ExecuteScript(guna2TextBox1.Text);
         }
 
         #endregion

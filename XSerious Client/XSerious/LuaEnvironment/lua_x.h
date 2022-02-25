@@ -21,7 +21,7 @@ public:
 		//Utils::Log("Initalizing environment...");
 	}
 
-	const static void Execute(std::string script) {
+	static lua_State* getNewState() {
 		lua_State* luaEnv = luaL_newstate();
 		luaL_openlibs(luaEnv);
 
@@ -40,6 +40,12 @@ public:
 		lua_register(luaEnv, "error", lua_Error);
 
 #pragma endregion
+
+		return luaEnv;
+	}
+
+	const static void Execute(std::string script) {
+		lua_State* luaEnv = getNewState();
 
 		if (CheckError(luaL_dostring(luaEnv, script.c_str()))) {
 			std::string err = lua_tostring(luaEnv, -1);

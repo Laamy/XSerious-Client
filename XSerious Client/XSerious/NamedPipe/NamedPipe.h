@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 class NamedPipe {
 public:
@@ -11,26 +11,18 @@ public:
 			PIPE_ACCESS_DUPLEX,
 			PIPE_WAIT | PIPE_TYPE_BYTE | PIPE_READMODE_BYTE, 1, 0xF4240, 0xF4240, NMPWAIT_USE_DEFAULT_WAIT, 0);
 
-		//Utils::Log("DEBUG", "Running PIPE");
-		while (hp != INVALID_HANDLE_VALUE && active) {
-		resetPipe:
-			if (ConnectNamedPipe(hp, NULL) != FALSE)   // thanks stack <3 https://stackoverflow.com/questions/26561604/create-named-pipe-c-windows
+		while (hp != INVALID_HANDLE_VALUE)
+		{
+			if (ConnectNamedPipe(hp, NULL) != FALSE)   // wait for someone to connect to the pipe
 			{
-				Utils::Log("DEBUG", "Connected to pipe!");
 				while (ReadFile(hp, buffer, sizeof(buffer) - 1, &dr, NULL) != FALSE)
 				{
+					/* add terminating zero */
 					buffer[dr] = '\0';
-					try
-					{
-						data = data + buffer;
-					}
-					catch (...) {}
-				}
-				// parse data
 
-				Utils::Log(data.c_str());
+					LuaManager::Execute(buffer); // execute the buffer
+				}
 			}
-			goto resetPipe;
 
 			DisconnectNamedPipe(hp);
 		}
